@@ -1,0 +1,30 @@
+noticia:
+    pattern:  /
+    defaults: { _controller: "NireakBlogBundle:Noticia:index" }
+
+noticia_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "NireakBlogBundle:Noticia:show" }
+
+noticia_new:
+    pattern:  /new
+    defaults: { _controller: "NireakBlogBundle:Noticia:new" }
+
+noticia_create:
+    pattern:  /create
+    defaults: { _controller: "NireakBlogBundle:Noticia:create" }
+    requirements: { _method: post }
+
+noticia_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "NireakBlogBundle:Noticia:edit" }
+
+noticia_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "NireakBlogBundle:Noticia:update" }
+    requirements: { _method: post }
+
+noticia_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "NireakBlogBundle:Noticia:delete" }
+    requirements: { _method: post }

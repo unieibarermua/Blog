@@ -1,0 +1,187 @@
+<?php
+
+namespace Nireak\Bundle\BlogBundle\Controller;
+
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+
+use Nireak\Bundle\BlogBundle\Entity\Noticia;
+use Nireak\Bundle\BlogBundle\Form\NoticiaType;
+
+/**
+ * Noticia controller.
+ *
+ */
+class NoticiaController extends Controller
+{
+    /**
+     * Lists all Noticia entities.
+     *
+     */
+    public function indexAction()
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+
+        $entities = $em->getRepository('NireakBlogBundle:Noticia')->findAll();
+
+        return $this->render('NireakBlogBundle:Noticia:index.html.twig', array(
+            'entities' => $entities
+        ));
+    }
+
+    /**
+     * Finds and displays a Noticia entity.
+     *
+     */
+    public function showAction($id)
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+
+        $entity = $em->getRepository('NireakBlogBundle:Noticia')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Noticia entity.');
+        }
+
+        $deleteForm = $this->createDeleteForm($id);
+
+        return $this->render('NireakBlogBundle:Noticia:show.html.twig', array(
+            'entity'      => $entity,
+            'delete_form' => $deleteForm->createView(),
+
+        ));
+    }
+
+    /**
+     * Displays a form to create a new Noticia entity.
+     *
+     */
+    public function newAction()
+    {
+        $entity = new Noticia();
+        $form   = $this->createForm(new NoticiaType(), $entity);
+
+        return $this->render('NireakBlogBundle:Noticia:new.html.twig', array(
+            'entity' => $entity,
+            'form'   => $form->createView()
+        ));
+    }
+
+    /**
+     * Creates a new Noticia entity.
+     *
+     */
+    public function createAction()
+    {
+        $entity  = new Noticia();
+        $request = $this->getRequest();
+        $form    = $this->createForm(new NoticiaType(), $entity);
+        $form->bindRequest($request);
+
+        if ($form->isValid()) {
+            $em = $this->getDoctrine()->getEntityManager();
+            $em->persist($entity);
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('noticia_show', array('id' => $entity->getId())));
+            
+        }
+
+        return $this->render('NireakBlogBundle:Noticia:new.html.twig', array(
+            'entity' => $entity,
+            'form'   => $form->createView()
+        ));
+    }
+
+    /**
+     * Displays a form to edit an existing Noticia entity.
+     *
+     */
+    public function editAction($id)
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+
+        $entity = $em->getRepository('NireakBlogBundle:Noticia')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Noticia entity.');
+        }
+
+        $editForm = $this->createForm(new NoticiaType(), $entity);
+        $deleteForm = $this->createDeleteForm($id);
+
+        return $this->render('NireakBlogBundle:Noticia:edit.html.twig', array(
+            'entity'      => $entity,
+            'edit_form'   => $editForm->createView(),
+            'delete_form' => $deleteForm->createView(),
+        ));
+    }
+
+    /**
+     * Edits an existing Noticia entity.
+     *
+     */
+    public function updateAction($id)
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+
+        $entity = $em->getRepository('NireakBlogBundle:Noticia')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Noticia entity.');
+        }
+
+        $editForm   = $this->createForm(new NoticiaType(), $entity);
+        $deleteForm = $this->createDeleteForm($id);
+
+        $request = $this->getRequest();
+
+        $editForm->bindRequest($request);
+
+        if ($editForm->isValid()) {
+            $em->persist($entity);
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('noticia'));
+        }
+
+        return $this->render('NireakBlogBundle:Noticia:edit.html.twig', array(
+            'entity'      => $entity,
+            'edit_form'   => $editForm->createView(),
+            'delete_form' => $deleteForm->createView(),
+        ));
+    }
+
+    /**
+     * Deletes a Noticia entity.
+     *
+     */
+    public function deleteAction($id)
+    {
+        $form = $this->createDeleteForm($id);
+        $request = $this->getRequest();
+
+        $form->bindRequest($request);
+
+        if ($form->isValid()) {
+            $em = $this->getDoctrine()->getEntityManager();
+            $entity = $em->getRepository('NireakBlogBundle:Noticia')->find($id);
+
+            if (!$entity) {
+                throw $this->createNotFoundException('Unable to find Noticia entity.');
+            }
+
+            $em->remove($entity);
+            $em->flush();
+        }
+
+        return $this->redirect($this->generateUrl('noticia'));
+    }
+
+    private function createDeleteForm($id)
+    {
+        return $this->createFormBuilder(array('id' => $id))
+            ->add('id', 'hidden')
+            ->getForm()
+        ;
+    }
+}

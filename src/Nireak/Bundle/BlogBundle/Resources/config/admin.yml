@@ -1,0 +1,19 @@
+noticia_edit:
+    pattern:  /edit/{id}
+    defaults: { _controller: NireakBlogBundle:Noticia:edit }
+
+noticia_new:
+    pattern:  /new/
+    defaults: { _controller: NireakBlogBundle:Noticia:new }
+
+noticia_create:
+    pattern:  /create/
+    defaults: { _controller: NireakBlogBundle:Noticia:create }
+
+noticia_delete:
+    pattern:  /delete/{id}
+    defaults: { _controller: NireakBlogBundle:Noticia:delete }
+
+noticia_update:
+    pattern:  /update/{id}
+    defaults: { _controller: NireakBlogBundle:Noticia:update }

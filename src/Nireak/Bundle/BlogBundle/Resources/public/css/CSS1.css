@@ -1,0 +1,149 @@
+
+
+body {
+    background-attachment : fixed;
+    background-image : url('imagenes/background.jpg');
+    background-repeat : fixed;
+    color : #071e6b;
+    font-family : Verdana;
+    font-size : 12px;
+    font-weight : normal;
+    margin-bottom : 5px;
+    margin-left : 5px;
+    margin-right : 5px;
+    margin-top : 5px;
+    text-align : justify;
+  }
+
+
+h1 {
+    color : #00082b;
+    font-family : Verdana;
+    font-size : 24px;
+    font-style : normal;
+    font-weight : bold;
+  }
+
+
+#titulo {
+    position : absolute;
+    right : 0%;
+    left : 0%;
+    top : 0%;
+    text-align:center;
+  }
+
+
+#subtitulo1 {
+    padding-bottom : 10px;
+    padding-left : 10px;
+    padding-right : 10px;
+    padding-top : 10px;
+    position : absolute;
+    right : 15%;
+    left : 15%;
+    top : 15%;
+    text-align:center;
+  }
+
+
+#subtitulo2 {
+    padding-bottom : 10px;
+    padding-left : 10px;
+    padding-right : 10px;
+    padding-top : 10px;
+    position : absolute;
+    left : 15%;
+    right : 50%;
+    top : 50%;
+    text-align:center;
+  }
+
+
+#subtitulo3 {
+    padding-bottom : 10px;
+    padding-left : 10px;
+    padding-right : 10px;
+    padding-top : 10px;
+    position : absolute;
+    left : 50%;
+    right : 15%;
+    top : 50%;
+    text-align:center;
+  }
+
+
+#articulo1 {
+    background-color : #ffffff;
+    border-bottom-style : double;
+    border-left-style : double;
+    border-right-style : double;
+    border-top-style : double;
+    padding : 10px;
+    position : absolute;
+    left : 15%;
+    right : 15%;
+    top : 25%;
+  }
+
+
+#articulo2 {
+    background-color : #ffffff;
+    border-bottom-style : double;
+    border-left-style : double;
+    border-right-style : double;
+    border-top-style : double;
+    padding : 10px;
+    position : absolute;
+    left : 15%;
+    right : 50%;
+    top : 65%;
+    opacity:0.6;
+  }
+
+
+#articulo3 {
+    background-color : #ffffff;
+    border-bottom-style : double;
+    border-left-style : double;
+    border-right-style : double;
+    border-top-style : double;
+    padding : 10px;
+    position : absolute;
+    left : 50%;
+    right : 15%;
+    top : 65%;
+    opacity:0.6;
+  }
+
+
+#abstracto {
+    margin-left:auto;
+    margin-right:auto;
+    display:block;
+    position : absolute;
+    left : 15%;
+    right : 15%;
+    top : 30%;
+    z-index:-1;
+  }
+
+
+#link {
+    background-color : #ffffff;
+    border-bottom-style : double;
+    border-left-style : double;
+    border-right-style : double;
+    border-top-style : double;
+    padding : 10px;
+    position : absolute;
+    left : 0%;
+    top : 25%;
+    width : 6%;
+  }
+
+
+p {
+    text-indent : 10%;
+  }
+

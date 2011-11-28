@@ -50,5 +50,5 @@
 </ul>
 <br>
 <img src="{{ asset('bundles/nireakblog/css/imagenes/Pantaila-argazkia.png') }}" />
-
+<IMG src="../../public/css/imagenes/Pantaila-argazkia.png" width="803" height="207" align="left" border="0">
 {% endblock %}

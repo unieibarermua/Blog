@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>{% block title %}Zure Blogga!{% endblock %}</title>
+{#        {% stylesheets filter="cssrewrite" output="css/packet/all.css"
+		'bundles/nireakblog/css/CSS1.css'
+
+		%}  
+
+		<link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
+	 {% endstylesheets %}
+ #}       <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
+	{% block stylesheets %}{% endblock %}
+
+    </head>
+    <body>
+	{% block titulo %} {% endblock %}
+        {% block body %} {% endblock %}
+        {% block javascripts %} {% endblock %}
+    </body>
+</html>
+
+
